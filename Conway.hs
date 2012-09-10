@@ -2,12 +2,10 @@ module Conway where
 
 import Data.List (intercalate)
 
-type Cell   = (Int,Int)
-
-putGrid :: [Cell] -> IO ()
+putGrid :: [(Int,Int)] -> IO ()
 putGrid = putStrLn . toString
 
-next :: [Cell] -> [Cell]
+next :: [(Int,Int)] -> [(Int,Int)]
 next cs = cs'
     where
       cs' = [(x,y) | x <- [(left cs)..(right cs)]
@@ -19,7 +17,7 @@ next cs = cs'
                                                 , y' <- [-1..1]
                                                 , x' /= 0 || y' /= 0])
 
-toString :: [Cell] -> String
+toString :: [(Int,Int)] -> String
 toString cs =
     intercalate "\n"
                 (map (\y -> concatMap (\x -> render(x,y)) xs) ys)
