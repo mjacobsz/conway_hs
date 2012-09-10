@@ -4,7 +4,6 @@ import Data.List (intercalate)
 
 type Cell   = (Int,Int)
 
-
 putGrid :: [Cell] -> IO ()
 putGrid = putStrLn . toString
 
