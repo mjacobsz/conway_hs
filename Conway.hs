@@ -9,8 +9,8 @@ nbCount :: Cell -> [Cell] -> Int
 nbCount (x,y) cs =
     length (filter (\c -> c `elem` cs) 
                    [(x+x',y+y') | x' <- [-1..1] 
-                               , y' <- [-1..1]
-                               , x' /= 0 || y' /= 0])
+                                , y' <- [-1..1]
+                                , x' /= 0 || y' /= 0])
 
 next :: Grid -> Grid
 next (w,h,cs) = (w,h,cs')
